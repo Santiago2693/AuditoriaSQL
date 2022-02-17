@@ -41,7 +41,7 @@ export class TablaAudCDComponent implements OnInit {
       )
   }
   crearLog(){
-    const fileName = 'logRelacionEntidad'
+    const fileName = 'logAnomalíasConDatos'
     const exportType =  exportFromJSON.types.csv
     exportFromJSON({ data: this.datos, fileName: fileName, exportType: exportType })
   }
