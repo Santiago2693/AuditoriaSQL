@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlqlConexion:'http://localhost:4000',
+  urlSqlConexion:'http://localhost:4000',
 };
 
 /*

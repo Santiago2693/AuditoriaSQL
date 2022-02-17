@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  urlSqlConexion:'http://localhost:4000',
 };
