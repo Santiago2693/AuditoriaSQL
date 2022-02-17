@@ -12,7 +12,6 @@ export class RutaPrincipalComponent implements OnInit {
 
   formGroup?:FormGroup
   listaBases?:string[] = [];
-  baseElegida: string = '';
   constructor(
     private readonly formBuilder:FormBuilder,
     private readonly apiService:SqlConexionService,
@@ -45,7 +44,6 @@ export class RutaPrincipalComponent implements OnInit {
   baseSeleccionada(){
     const base = this.formGroup?.get('listaDb')
     if(base){
-      this.baseElegida = base.value
       this.enrutador.navigate(['/home'],{
         queryParams: {db: base.value}
       })
