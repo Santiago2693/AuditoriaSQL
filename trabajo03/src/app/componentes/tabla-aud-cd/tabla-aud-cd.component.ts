@@ -24,7 +24,9 @@ export class TablaAudCDComponent implements OnInit {
     parametros$.subscribe({
       next: (params) =>{
         this.nombreBase = params['db'];
-        this.buscarAnomalias()
+        if(this.nombreBase){
+          this.buscarAnomalias()
+        }
       }
     })
   }
