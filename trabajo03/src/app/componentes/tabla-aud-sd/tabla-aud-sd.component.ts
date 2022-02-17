@@ -17,7 +17,7 @@ export class TablaAudSDComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.servicioSQL.buscarAnomaliasDeDatos('pubs')
+    this.servicioSQL.buscarAnomaliasDeDatos(this.nombreBase)
       .subscribe(
         (data)=>{
           this.datos = data

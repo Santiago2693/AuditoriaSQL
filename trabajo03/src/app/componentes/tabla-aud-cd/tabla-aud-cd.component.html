@@ -1,0 +1,19 @@
+<div class="container "  style="padding-left: 300px; padding-right: 300px">
+  <h3 class="fw-bold">Anomalías con datos</h3>
+  <table class="table table-primary" >
+    <thead>
+    <tr>
+      <th scope="col">Tabla</th>
+      <th scope="col">Nombre de la restricción</th>
+      <th scope="col">Atributo -> Valor</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let elemento of datos">
+      <td>{{elemento.Table}}</td>
+      <td>{{elemento.Constraint}}</td>
+      <td>{{elemento.Where}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
