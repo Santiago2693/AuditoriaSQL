@@ -1,4 +1,5 @@
 export interface PosbleAnomaliaInterface {
   Table:string;
-  Constraint:string
+  Constraint:string;
+  Where:string
 }
