@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SqlConexionService} from "../../servicios/http/sql-conexion.service";
 import {ActivatedRoute} from "@angular/router";
 import {RelacionEntidadInterface} from "../../servicios/http/interfaces/relacionEntidad.interface";
-
+import exportFromJSON from "export-from-json";
 @Component({
   selector: 'app-tabla-aud-re',
   templateUrl: './tabla-aud-re.component.html',
@@ -35,6 +35,12 @@ export class TablaAudREComponent implements OnInit {
           this.datos = data
         }
       )
+  }
+
+  crearLog(){
+    const fileName = 'logRelacionEntidad'
+    const exportType =  exportFromJSON.types.csv
+    exportFromJSON({ data: this.datos, fileName: fileName, exportType: exportType })
   }
 
 }

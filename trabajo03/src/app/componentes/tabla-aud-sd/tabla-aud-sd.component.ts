@@ -3,6 +3,7 @@ import {SqlConexionService} from "../../servicios/http/sql-conexion.service";
 import {PosbleAnomaliaInterface} from "../../servicios/http/interfaces/posbleAnomalia.interface";
 import {AnomaliaDatosInterface} from "../../servicios/http/interfaces/anomaliaDatos.interface";
 import {ActivatedRoute} from "@angular/router";
+import exportFromJSON from "export-from-json";
 
 @Component({
   selector: 'app-tabla-aud-sd',
@@ -38,6 +39,11 @@ export class TablaAudSDComponent implements OnInit {
           this.datos = data
         }
       )
+  }
+  crearLog(){
+    const fileName = 'logRelacionEntidad'
+    const exportType =  exportFromJSON.types.csv
+    exportFromJSON({ data: this.datos, fileName: fileName, exportType: exportType })
   }
 
 }
