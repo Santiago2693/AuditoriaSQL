@@ -1,0 +1,23 @@
+<div class="container "  style="padding-left: 300px; padding-right: 300px">
+  <h3 class="fw-bold">Anomalías con datos</h3>
+  <table class="table table-danger" >
+    <thead>
+    <tr>
+      <th scope="col">Nombre de la restriccion</th>
+      <th scope="col">Tabla (padre)</th>
+      <th scope="col">Columna (padre)</th>
+      <th scope="col">Tabla (hija)</th>
+      <th scope="col">Columna (hija)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let elemento of datos">
+      <td>{{elemento["Nombre de la restriccion"]}}</td>
+      <td>{{elemento.Tabla}}</td>
+      <td>{{elemento.Columna}}</td>
+      <td>{{elemento["Tabla de referencia"]}}</td>
+      <td>{{elemento["Columna de referencia"]}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
