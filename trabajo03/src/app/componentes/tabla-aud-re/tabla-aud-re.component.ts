@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SqlConexionService} from "../../servicios/http/sql-conexion.service";
 import {ActivatedRoute} from "@angular/router";
+import {RelacionEntidadInterface} from "../../servicios/http/interfaces/relacionEntidad.interface";
 
 @Component({
   selector: 'app-tabla-aud-re',
@@ -10,7 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 export class TablaAudREComponent implements OnInit {
 
   nombreBase =''
-  datos : [] =[]
+  datos : RelacionEntidadInterface[] =[]
   constructor(
     private readonly servicioSQL : SqlConexionService,
     private readonly  rutaActual: ActivatedRoute
@@ -21,17 +22,19 @@ export class TablaAudREComponent implements OnInit {
     parametros$.subscribe({
       next: (params) =>{
         this.nombreBase = params['db'];
-        // this.buscarRelacionesentidades()
+        if(this.nombreBase){
+          this.buscarRelacionesentidades()
+        }
       }
     })
   }
-  // buscarRelacionesentidades(){
-  //   this.servicioSQL.(this.nombreBase)
-  //     .subscribe(
-  //       (data)=>{
-  //         this.datos = data
-  //       }
-  //     )
-  // }
+  buscarRelacionesentidades(){
+    this.servicioSQL.buscarRelacionEntidad(this.nombreBase)
+      .subscribe(
+        (data)=>{
+          this.datos = data
+        }
+      )
+  }
 
 }
