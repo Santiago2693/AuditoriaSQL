@@ -5,6 +5,7 @@ import {map, Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {PosbleAnomaliaInterface} from "./interfaces/posbleAnomalia.interface";
 import {AnomaliaDatosInterface} from "./interfaces/anomaliaDatos.interface";
+import {RelacionEntidadInterface} from "./interfaces/relacionEntidad.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,18 @@ export class SqlConexionService {
       .pipe(
         map(
           (resultadoEnData) => resultadoEnData as AnomaliaDatosInterface[]
+        )
+      );
+  }
+
+
+  buscarRelacionEntidad(base:string): Observable<RelacionEntidadInterface[]>{
+    const url = environment.urlSqlConexion+'/relacionentidades/'+base;
+    return this.httpCliente
+      .get(url)
+      .pipe(
+        map(
+          (resultadoEnData) => resultadoEnData as RelacionEntidadInterface[]
         )
       );
   }
