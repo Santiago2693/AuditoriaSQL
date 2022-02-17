@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {SqlConexionService} from "../../servicios/http/sql-conexion.service";
 import {PosbleAnomaliaInterface} from "../../servicios/http/interfaces/posbleAnomalia.interface";
 import {AnomaliaDatosInterface} from "../../servicios/http/interfaces/anomaliaDatos.interface";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-tabla-aud-sd',
@@ -10,13 +11,25 @@ import {AnomaliaDatosInterface} from "../../servicios/http/interfaces/anomaliaDa
 })
 export class TablaAudSDComponent implements OnInit {
 
-  @Input() nombreBase = ''
+  nombreBase = ''
   datos : AnomaliaDatosInterface []= []
   constructor(
-    private readonly servicioSQL : SqlConexionService
+    private readonly servicioSQL : SqlConexionService,
+    private readonly  rutaActual: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    const parametros$ = this.rutaActual.queryParams;
+
+    parametros$.subscribe({
+      next: (params) =>{
+        this.nombreBase = params['db'];
+        this.buscarAnomaliasDatos();
+      }
+    })
+  }
+
+  buscarAnomaliasDatos(){
     this.servicioSQL.buscarAnomaliasDeDatos(this.nombreBase)
       .subscribe(
         (data)=>{

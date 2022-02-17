@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {SqlConexionService} from "../../servicios/http/sql-conexion.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-ruta-principal',
@@ -14,7 +15,9 @@ export class RutaPrincipalComponent implements OnInit {
   baseElegida: string = '';
   constructor(
     private readonly formBuilder:FormBuilder,
-    private readonly apiService:SqlConexionService
+    private readonly apiService:SqlConexionService,
+    private readonly rutaActual:ActivatedRoute,
+    private readonly enrutador:Router
   ) { }
 
   ngOnInit(): void {
@@ -42,7 +45,10 @@ export class RutaPrincipalComponent implements OnInit {
   baseSeleccionada(){
     const base = this.formGroup?.get('listaDb')
     if(base){
-      this.baseElegida = base.value;
+      this.baseElegida = base.value
+      this.enrutador.navigate(['/home'],{
+        queryParams: {db: base.value}
+      })
     }
   }
 
