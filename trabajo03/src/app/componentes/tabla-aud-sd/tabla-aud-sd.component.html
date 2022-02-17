@@ -1,0 +1,20 @@
+<div class="container">
+  <h3 class="fw-bold">Anomalías sin datos</h3>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Tabla 1</th>
+      <th scope="col">Tabla 2</th>
+      <th scope="col">Posible columna anómala</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let elemento of datos">
+      <td>{{elemento.TABLE_NAME[0]}}</td>
+      <td>{{elemento.TABLE_NAME[1]}}</td>
+      <td>{{elemento["Posible columna anomala"]}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

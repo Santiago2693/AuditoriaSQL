@@ -12,11 +12,13 @@ import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {MatButtonModule} from "@angular/material/button";
 import {ReactiveFormsModule} from "@angular/forms";
+import { TablaAudSDComponent } from './componentes/tabla-aud-sd/tabla-aud-sd.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RutaPrincipalComponent
+    RutaPrincipalComponent,
+    TablaAudSDComponent
   ],
   imports: [
     BrowserModule,

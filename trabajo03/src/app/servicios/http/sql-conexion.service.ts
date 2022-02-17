@@ -30,7 +30,7 @@ export class SqlConexionService {
 
 
   buscarPosiblesAnomalias(base:string): Observable<PosbleAnomaliaInterface[]>{
-    const url = environment.urlSqlConexion+'/integridadSD/'+base;
+    const url = environment.urlSqlConexion+'/integridadCD/'+base;
 
     return this.httpCliente
       .get(url)
@@ -42,7 +42,7 @@ export class SqlConexionService {
   }
 
   buscarAnomaliasDeDatos(base:string): Observable<AnomaliaDatosInterface[]>{
-    const url = environment.urlSqlConexion+'/integridadCD/'+base;
+    const url = environment.urlSqlConexion+'/integridadSD/'+base;
     return this.httpCliente
       .get(url)
       .pipe(
