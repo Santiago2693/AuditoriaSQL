@@ -6,6 +6,11 @@ const routes: Routes = [
   {
     path: 'home',
     component: RutaPrincipalComponent
+  },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
   }
 ];
 
