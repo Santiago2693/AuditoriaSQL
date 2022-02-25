@@ -27,9 +27,6 @@ export class SqlConexionService {
       );
   }
 
-
-
-
   buscarPosiblesAnomalias(base:string): Observable<PosbleAnomaliaInterface[]>{
     const url = environment.urlSqlConexion+'/integridadCD/'+base;
 
@@ -52,7 +49,6 @@ export class SqlConexionService {
         )
       );
   }
-
 
   buscarRelacionEntidad(base:string): Observable<RelacionEntidadInterface[]>{
     const url = environment.urlSqlConexion+'/relacionentidades/'+base;

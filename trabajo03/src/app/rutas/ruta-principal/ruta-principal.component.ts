@@ -35,12 +35,6 @@ export class RutaPrincipalComponent implements OnInit {
       })
   }
 
-  prepararFormulario(){
-    this.formGroup = this.formBuilder.group({
-      listaDb: new FormControl('')
-    })
-  }
-
   baseSeleccionada(){
     const base = this.formGroup?.get('listaDb')
     if(base){
@@ -49,5 +43,13 @@ export class RutaPrincipalComponent implements OnInit {
       })
     }
   }
+
+  prepararFormulario(){
+    this.formGroup = this.formBuilder.group({
+      listaDb: new FormControl('')
+    })
+  }
+
+
 
 }
